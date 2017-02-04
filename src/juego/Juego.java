@@ -2,6 +2,8 @@ package juego;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Created by Vika on 03.02.2017.
@@ -12,7 +14,8 @@ public class Juego {
     //presentation
     JPanel panelPresentation;
     JButton iniciar;
-    JLabel  fondoPresenttion;
+    JLabel  fondoPresentation;
+    ImageIcon imageFondoPres;
 
     public Juego(){
         ventana = new JFrame("Created by Vika PACMAN");
@@ -29,13 +32,29 @@ public class Juego {
         panelPresentation.setBackground(Color.RED);
 
         iniciar= new JButton("INICIAR");
-        iniciar.setBounds(ventana.getWidth()-170,20,150,30);
+        iniciar.setBounds(ventana.getWidth()-120,20,100,30);
         iniciar.setVisible(true);
         iniciar.setBackground(Color.WHITE);
         panelPresentation.add(iniciar,0);
+
+        fondoPresentation = new JLabel();
+        fondoPresentation.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
+        imageFondoPres = new ImageIcon("images//fondoPresentation.png");
+        imageFondoPres = new ImageIcon(imageFondoPres.getImage().getScaledInstance(ventana.getWidth(),ventana.getHeight(),Image.SCALE_DEFAULT));
+        fondoPresentation.setIcon(imageFondoPres);
+        fondoPresentation.setVisible(true);
+
+        panelPresentation.add(fondoPresentation,0);
+
         ventana.add(panelPresentation);
 
+        iniciar.addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent e){
+                System.out.println(" button iniciar");
+                //menu();
 
+            }
+        });
 
         ventana.setVisible(true);
     }
