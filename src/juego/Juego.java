@@ -29,11 +29,11 @@ public class Juego {
         panelPresentation.setBackground(Color.RED);
 
         iniciar= new JButton("INICIAR");
-        iniciar.setBounds(ventana.getWidth()-70,20,50,30);
+        iniciar.setBounds(ventana.getWidth()-170,20,150,30);
         iniciar.setVisible(true);
-
+        iniciar.setBackground(Color.WHITE);
         panelPresentation.add(iniciar,0);
-        ventana.add(panelPresentation,-1);
+        ventana.add(panelPresentation);
 
 
 
