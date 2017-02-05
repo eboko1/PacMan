@@ -18,7 +18,11 @@ public class Juego {
     ImageIcon imageFondoPres;
 
     //menu
+    Button buttons[];
     JPanel panelMenu;
+    JLabel fontoMenu;
+    ImageIcon imageFondoMenu;
+
 
     public Juego(){
         ventana = new JFrame("Created by Vika PACMAN");
@@ -34,7 +38,7 @@ public class Juego {
         panelPresentation.setVisible(true);
         panelPresentation.setBackground(Color.RED);
 
-        iniciar= new JButton("INICIAR");
+        iniciar= new JButton("Menu");
         iniciar.setBounds(ventana.getWidth()-120,20,100,30);
         iniciar.setVisible(true);
         iniciar.setBackground(Color.WHITE);
@@ -67,5 +71,20 @@ public class Juego {
         panelMenu.setLayout(null);
         panelMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
         panelMenu.setVisible(true);
+
+        fontoMenu = new JLabel();
+        fontoMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
+        imageFondoMenu = new ImageIcon("images//fondoMenu.png");
+        imageFondoMenu = new ImageIcon(imageFondoMenu.getImage().getScaledInstance(ventana.getWidth(),ventana.getHeight(),Image.SCALE_DEFAULT));
+        fontoMenu.setIcon(imageFondoMenu);
+        fontoMenu.setVisible(true);
+        panelMenu.add(fontoMenu,0);
+
+        for(int i=0;i<buttons.length;i++){
+            buttons[i].setBounds(ventana.getWidth()-200,(i+1)*50,200,40);
+            buttons[i]=new Button();
+            buttons[i].setVisible(true);
+            panelMenu.add(buttons[i]);
+        }
     }
 }
