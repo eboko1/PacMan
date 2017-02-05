@@ -18,9 +18,9 @@ public class Juego {
     ImageIcon imageFondoPres;
 
     //menu
-    Button buttons[];
+    JButton buttons[];
     JPanel panelMenu;
-    JLabel fontoMenu;
+    JLabel fondoMenu;
     ImageIcon imageFondoMenu;
 
 
@@ -51,9 +51,15 @@ public class Juego {
         fondoPresentation.setIcon(imageFondoPres);
         fondoPresentation.setVisible(true);
 
-        panelPresentation.add(fondoPresentation,0);
+
 
         ventana.add(panelPresentation);
+        //menu
+        buttons = new JButton[5];
+        for(int i=0;i<buttons.length;i++){
+            buttons[i]=new JButton();
+
+        }
 
         iniciar.addMouseListener(new MouseAdapter(){
             public void mousePressed(MouseEvent e){
@@ -62,29 +68,32 @@ public class Juego {
 
             }
         });
-
+        panelPresentation.add(fondoPresentation,0);// down
         ventana.setVisible(true);
     }
     public void menu(){
         panelPresentation.setVisible(false);
+
         panelMenu = new JPanel();
         panelMenu.setLayout(null);
         panelMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
         panelMenu.setVisible(true);
 
-        fontoMenu = new JLabel();
-        fontoMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
+        fondoMenu = new JLabel();
+        fondoMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
         imageFondoMenu = new ImageIcon("images//fondoMenu.png");
         imageFondoMenu = new ImageIcon(imageFondoMenu.getImage().getScaledInstance(ventana.getWidth(),ventana.getHeight(),Image.SCALE_DEFAULT));
-        fontoMenu.setIcon(imageFondoMenu);
-        fontoMenu.setVisible(true);
-        panelMenu.add(fontoMenu,0);
+        fondoMenu.setIcon(imageFondoMenu);
+        fondoMenu.setVisible(true);
+        panelMenu.add(fondoMenu,0);
 
         for(int i=0;i<buttons.length;i++){
-            buttons[i].setBounds(ventana.getWidth()-200,(i+1)*50,200,40);
-            buttons[i]=new Button();
+            buttons[i].setBounds(ventana.getWidth()-(200+50),(i+1)*50,200,40);
+            buttons[i]=new JButton();
             buttons[i].setVisible(true);
-            panelMenu.add(buttons[i]);
+            buttons[i].setBackground(Color.WHITE);
+            panelMenu.add(buttons[i],0);
         }
+        ventana.add(panelMenu);
     }
 }
