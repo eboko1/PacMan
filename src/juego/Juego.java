@@ -17,6 +17,9 @@ public class Juego {
     JLabel  fondoPresentation;
     ImageIcon imageFondoPres;
 
+    //menu
+    JPanel panelMenu;
+
     public Juego(){
         ventana = new JFrame("Created by Vika PACMAN");
         ventana.setSize(700,700);
@@ -59,6 +62,10 @@ public class Juego {
         ventana.setVisible(true);
     }
     public void menu(){
-        
+        panelPresentation.setVisible(false);
+        panelMenu = new JPanel();
+        panelMenu.setLayout(null);
+        panelMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
+        panelMenu.setVisible(true);
     }
 }
