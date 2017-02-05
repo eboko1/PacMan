@@ -51,11 +51,14 @@ public class Juego {
         iniciar.addMouseListener(new MouseAdapter(){
             public void mousePressed(MouseEvent e){
                 System.out.println(" button iniciar");
-                //menu();
+                menu();
 
             }
         });
 
         ventana.setVisible(true);
+    }
+    public void menu(){
+        
     }
 }
