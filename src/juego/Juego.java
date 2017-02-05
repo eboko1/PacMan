@@ -89,7 +89,6 @@ public class Juego {
 
         for(int i=0;i<buttons.length;i++){
             buttons[i].setBounds(ventana.getWidth()-(200+50),(i+1)*50,200,40);
-            buttons[i]=new JButton();
             buttons[i].setVisible(true);
             buttons[i].setBackground(Color.WHITE);
             panelMenu.add(buttons[i],0);
