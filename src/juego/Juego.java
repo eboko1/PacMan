@@ -65,6 +65,7 @@ public class Juego {
             public void mousePressed(MouseEvent e){
                 System.out.println(" button iniciar");
                 menu();
+                evenToMenu();
 
             }
         });
@@ -91,7 +92,7 @@ public class Juego {
         buttons[1].setText("Two");
         buttons[2].setText("Three");
         buttons[3].setText("Four");
-        buttons[4].setText("Five");
+        buttons[4].setText("Вихід");
 
         for(int i=0;i<buttons.length;i++){
             buttons[i].setBounds(ventana.getWidth()-(200+50),(i+1)*50,200,40);
@@ -100,5 +101,49 @@ public class Juego {
             panelMenu.add(buttons[i],0);
         }
         ventana.add(panelMenu);
+    }
+    //menu buttons
+
+
+    public void evenToMenu(){
+        //button ONE
+        buttons[0].addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+             System.out.println("Button ONE");
+            }
+        });
+        //button Two
+        buttons[1].addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println("Button Two");
+
+            }
+        });
+        //button three
+        buttons[2].addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println("Button TREE");
+
+            }
+        });
+        //button four
+        buttons[3].addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println("Button Four");
+
+            }
+        });
+        //button exit
+        buttons[4].addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println("Button EXIT");
+                System.exit(0);
+            }
+        });
     }
 }
