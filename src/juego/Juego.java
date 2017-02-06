@@ -25,7 +25,7 @@ public class Juego {
 
 
     public Juego(){
-        ventana = new JFrame("Created by Vika PACMAN");
+        ventana = new JFrame("Created by Vika Frantsuh_PACMAN");
         ventana.setSize(700,700);
         ventana.setLayout(null);
         ventana.setLocationRelativeTo(null);
@@ -86,6 +86,12 @@ public class Juego {
         fondoMenu.setIcon(imageFondoMenu);
         fondoMenu.setVisible(true);
         panelMenu.add(fondoMenu,0);
+
+        buttons[0].setText("One");
+        buttons[1].setText("Two");
+        buttons[2].setText("Three");
+        buttons[3].setText("Four");
+        buttons[4].setText("Five");
 
         for(int i=0;i<buttons.length;i++){
             buttons[i].setBounds(ventana.getWidth()-(200+50),(i+1)*50,200,40);
