@@ -23,9 +23,16 @@ public class Juego {
     JLabel fondoMenu;
     ImageIcon imageFondoMenu;
 
-    //for ONE
+    //for panelLevelONE
     JPanel panelLevelONE;
-    JPanel fondoLevelONE;
+    JLabel fondoLevelONE;
+    ImageIcon imageFontLevelOne;
+    int mat[][];
+    JLabel matrix[][];
+    String jugador;
+    JLabel number;
+    String puntos;
+    JLabel records;
 
 
     public Juego(){
