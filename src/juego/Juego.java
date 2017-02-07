@@ -23,6 +23,10 @@ public class Juego {
     JLabel fondoMenu;
     ImageIcon imageFondoMenu;
 
+    //for ONE
+    JPanel panelLevelONE;
+    JPanel fondoLevelONE;
+
 
     public Juego(){
         ventana = new JFrame("Created by Vika Frantsuh_PACMAN");
