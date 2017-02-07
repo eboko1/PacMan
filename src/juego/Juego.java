@@ -34,7 +34,7 @@ public class Juego {
     String puntos;
     JLabel records;
 
-
+    /////////////////////////////////////////////////////////////////////////////////
     public Juego(){
         ventana = new JFrame("Created by Vika Frantsuh_PACMAN");
         ventana.setSize(700,700);
@@ -82,7 +82,15 @@ public class Juego {
         });
         panelPresentation.add(fondoPresentation,0);// down
         ventana.setVisible(true);
+    }// finish constructor
+
+    /////////////////////////////////////////////////////////////////////////////////
+    // for level one
+    public void levelOne(){
+        
     }
+
+    /////////////////////////////////////////////////////////////////////////////////
     public void menu(){
         panelPresentation.setVisible(false);
 
@@ -113,6 +121,10 @@ public class Juego {
         }
         ventana.add(panelMenu);
     }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
     //menu buttons
 
 
@@ -157,4 +169,5 @@ public class Juego {
             }
         });
     }
+    /////////////////////////////////////////////////////////////////////////////////
 }
