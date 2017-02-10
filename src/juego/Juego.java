@@ -23,7 +23,7 @@ public class Juego {
     JLabel fondoMenu;
     ImageIcon imageFondoMenu;
 
-    //for panelLevelONE
+    //for panelLevelONE his ->jugar
     JPanel panelLevelONE;
     JLabel fondoLevelONE;
     ImageIcon imageFontLevelOne;
@@ -85,8 +85,11 @@ public class Juego {
     }// finish constructor
 
     /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
     // for levelOne this ->jugar
-    public void levelOne(){
+    public void levelONE(){
 
     }
 
@@ -134,8 +137,14 @@ public class Juego {
             @Override
             public void mousePressed(MouseEvent e) {
              System.out.println("Button ONE");
+             jugador = JOptionPane.showInputDialog(ventana,"AAAAA","BBBBBBBBBBBB");
+                while (jugador == null || jugador.compareTo("CCCCCCCCCCCC") == 0 || jugador.compareTo("D") == 0) {
+                    jugador = JOptionPane.showInputDialog(ventana,"HHHHHHH","GGGG");
+                }
+                levelONE();//jugar()
             }
         });
+
         //button Two
         buttons[1].addMouseListener(new MouseAdapter() {
             @Override
