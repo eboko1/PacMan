@@ -22,14 +22,15 @@ public class Juego {
     JPanel panelMenu;
     JLabel fondoMenu;
     ImageIcon imageFondoMenu;
-
-    //for panelLevelONE his ->jugar
-    JPanel panelLevelONE;
-    JLabel fondoLevelONE;
-    ImageIcon imageFontLevelOne;
+    /////////////////////////////////////////////////////////////////////////////////
+    //for jugar is play
+    /////////////////////////////////////////////////////////////////////////////////
+    JPanel play;
+    JLabel fondoPlay;
+    ImageIcon imageFontPlay;
     int mat[][];
     JLabel matrix[][];
-    String jugador;
+    String player;//jugador
     JLabel number;
     String puntos;
     JLabel records;
@@ -57,7 +58,7 @@ public class Juego {
 
         fondoPresentation = new JLabel();
         fondoPresentation.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
-        imageFondoPres = new ImageIcon("images//fondoPresentation.png");
+        imageFondoPres = new ImageIcon("images//backgroundPresentation.png");
         imageFondoPres = new ImageIcon(imageFondoPres.getImage().getScaledInstance(ventana.getWidth(),ventana.getHeight(),Image.SCALE_DEFAULT));
         fondoPresentation.setIcon(imageFondoPres);
         fondoPresentation.setVisible(true);
@@ -74,7 +75,7 @@ public class Juego {
 
         iniciar.addMouseListener(new MouseAdapter(){
             public void mousePressed(MouseEvent e){
-                System.out.println(" button iniciar");
+                System.out.println(" button menu");
                 menu();
                 evenToMenu();
 
@@ -104,17 +105,17 @@ public class Juego {
 
         fondoMenu = new JLabel();
         fondoMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
-        imageFondoMenu = new ImageIcon("images//fondoMenu.png");
+        imageFondoMenu = new ImageIcon("images//backgroundMenu.png");
         imageFondoMenu = new ImageIcon(imageFondoMenu.getImage().getScaledInstance(ventana.getWidth(),ventana.getHeight(),Image.SCALE_DEFAULT));
         fondoMenu.setIcon(imageFondoMenu);
         fondoMenu.setVisible(true);
         panelMenu.add(fondoMenu,0);
 
-        buttons[0].setText("One");
-        buttons[1].setText("Two");
-        buttons[2].setText("Three");
+        buttons[0].setText("Play");
+        buttons[1].setText("Create table");
+        buttons[2].setText("Records");
         buttons[3].setText("Four");
-        buttons[4].setText("Вихід");
+        buttons[4].setText("EXIT");
 
         for(int i=0;i<buttons.length;i++){
             buttons[i].setBounds(ventana.getWidth()-(200+50),(i+1)*50,200,40);
@@ -132,14 +133,14 @@ public class Juego {
 
 
     public void evenToMenu(){
-        //button ONE
+        //button ONE  jugador is player
         buttons[0].addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-             System.out.println("Button ONE");
-             jugador = JOptionPane.showInputDialog(ventana,"AAAAA","BBBBBBBBBBBB");
-                while (jugador == null || jugador.compareTo("CCCCCCCCCCCC") == 0 || jugador.compareTo("D") == 0) {
-                    jugador = JOptionPane.showInputDialog(ventana,"HHHHHHH","GGGG");
+             System.out.println("Button Play");
+             player = JOptionPane.showInputDialog(ventana,"Player name","Write here");
+                while (player == null || player.compareTo("Write here") == 0 || player.compareTo("D") == 0) {
+                    player = JOptionPane.showInputDialog(ventana,"HHHHHHH","GGGG");
                 }
                 levelONE();//jugar()
             }
@@ -149,7 +150,7 @@ public class Juego {
         buttons[1].addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println("Button Two");
+                System.out.println("button Create table");
 
             }
         });
@@ -157,7 +158,7 @@ public class Juego {
         buttons[2].addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println("Button TREE");
+                System.out.println("button Records");
 
             }
         });
@@ -165,7 +166,7 @@ public class Juego {
         buttons[3].addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println("Button Four");
+                System.out.println("button Four");
 
             }
         });
@@ -173,7 +174,7 @@ public class Juego {
         buttons[4].addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println("Button EXIT");
+                System.out.println("button EXIT");
                 System.exit(0);
             }
         });
