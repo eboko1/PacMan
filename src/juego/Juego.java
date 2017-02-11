@@ -140,7 +140,7 @@ public class Juego {
              System.out.println("Button Play");
              player = JOptionPane.showInputDialog(ventana,"Player name","Write here");
                 while (player == null || player.compareTo("Write here") == 0 || player.compareTo("D") == 0) {
-                    player = JOptionPane.showInputDialog(ventana,"HHHHHHH","GGGG");
+                    player = JOptionPane.showInputDialog(ventana,"You must enter a username","Please write here ");
                 }
                 levelONE();//jugar()
             }
