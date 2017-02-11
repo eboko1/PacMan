@@ -1,4 +1,4 @@
-package juego;
+package game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,8 +8,8 @@ import java.awt.event.MouseEvent;
 /**
  * Created by Vika on 03.02.2017.
  */
-public class Juego {
-    JFrame ventana;
+public class Game {
+    JFrame windows; // ventana
 
     //presentation
     JPanel panelPresentation;
@@ -25,47 +25,47 @@ public class Juego {
     /////////////////////////////////////////////////////////////////////////////////
     //for jugar is play
     /////////////////////////////////////////////////////////////////////////////////
-    JPanel play;
-    JLabel fondoPlay;
-    ImageIcon imageFontPlay;
+    JPanel panelPlay;
+    JLabel bgPlay;   //backgroundPlay
+    ImageIcon imageBgPlay;  // Bg  -  background
     int mat[][];
     JLabel matrix[][];
     String player;//jugador
     JLabel number;
-    String puntos;
+    String points;
     JLabel records;
 
     /////////////////////////////////////////////////////////////////////////////////
-    public Juego(){
-        ventana = new JFrame("Created by Vika Frantsuh_PACMAN");
-        ventana.setSize(700,700);
-        ventana.setLayout(null);
-        ventana.setLocationRelativeTo(null);
-        ventana.setResizable(false);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public Game(){
+        windows = new JFrame("Created by Vika Frantsuh_PACMAN");
+        windows.setSize(700,700);
+        windows.setLayout(null);
+        windows.setLocationRelativeTo(null);
+        windows.setResizable(false);
+        windows.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         panelPresentation = new JPanel();
         panelPresentation.setLayout(null);
-        panelPresentation.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
+        panelPresentation.setBounds(0,0,windows.getWidth(),windows.getHeight());
         panelPresentation.setVisible(true);
         panelPresentation.setBackground(Color.RED);
 
         iniciar= new JButton("Menu");
-        iniciar.setBounds(ventana.getWidth()-120,20,100,30);
+        iniciar.setBounds(windows.getWidth()-120,20,100,30);
         iniciar.setVisible(true);
         iniciar.setBackground(Color.WHITE);
         panelPresentation.add(iniciar,0);
 
         fondoPresentation = new JLabel();
-        fondoPresentation.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
+        fondoPresentation.setBounds(0,0,windows.getWidth(),windows.getHeight());
         imageFondoPres = new ImageIcon("images//backgroundPresentation.png");
-        imageFondoPres = new ImageIcon(imageFondoPres.getImage().getScaledInstance(ventana.getWidth(),ventana.getHeight(),Image.SCALE_DEFAULT));
+        imageFondoPres = new ImageIcon(imageFondoPres.getImage().getScaledInstance(windows.getWidth(),windows.getHeight(),Image.SCALE_DEFAULT));
         fondoPresentation.setIcon(imageFondoPres);
         fondoPresentation.setVisible(true);
 
 
 
-        ventana.add(panelPresentation);
+        windows.add(panelPresentation);
         //menu
         buttons = new JButton[5];
         for(int i=0;i<buttons.length;i++){
@@ -82,7 +82,7 @@ public class Juego {
             }
         });
         panelPresentation.add(fondoPresentation,0);// down
-        ventana.setVisible(true);
+        windows.setVisible(true);
     }// finish constructor
 
     /////////////////////////////////////////////////////////////////////////////////
@@ -90,7 +90,14 @@ public class Juego {
     /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
     // for levelOne this ->jugar
-    public void levelONE(){
+    public void play(){
+        panelMenu.setVisible(false);
+        panelPlay = new JPanel();
+        panelPlay.setLayout(null);
+        panelPlay.setBounds(0,0,windows.getWidth(),windows.getHeight());
+        panelPlay.setVisible(true);
+
+
 
     }
 
@@ -100,13 +107,13 @@ public class Juego {
 
         panelMenu = new JPanel();
         panelMenu.setLayout(null);
-        panelMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
+        panelMenu.setBounds(0,0,windows.getWidth(),windows.getHeight());
         panelMenu.setVisible(true);
 
         fondoMenu = new JLabel();
-        fondoMenu.setBounds(0,0,ventana.getWidth(),ventana.getHeight());
+        fondoMenu.setBounds(0,0,windows.getWidth(),windows.getHeight());
         imageFondoMenu = new ImageIcon("images//backgroundMenu.png");
-        imageFondoMenu = new ImageIcon(imageFondoMenu.getImage().getScaledInstance(ventana.getWidth(),ventana.getHeight(),Image.SCALE_DEFAULT));
+        imageFondoMenu = new ImageIcon(imageFondoMenu.getImage().getScaledInstance(windows.getWidth(),windows.getHeight(),Image.SCALE_DEFAULT));
         fondoMenu.setIcon(imageFondoMenu);
         fondoMenu.setVisible(true);
         panelMenu.add(fondoMenu,0);
@@ -118,12 +125,12 @@ public class Juego {
         buttons[4].setText("EXIT");
 
         for(int i=0;i<buttons.length;i++){
-            buttons[i].setBounds(ventana.getWidth()-(200+50),(i+1)*50,200,40);
+            buttons[i].setBounds(windows.getWidth()-(200+50),(i+1)*50,200,40);
             buttons[i].setVisible(true);
             buttons[i].setBackground(Color.WHITE);
             panelMenu.add(buttons[i],0);
         }
-        ventana.add(panelMenu);
+        windows.add(panelMenu);
     }
 
 
@@ -137,12 +144,14 @@ public class Juego {
         buttons[0].addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-             System.out.println("Button Play");
-             player = JOptionPane.showInputDialog(ventana,"Player name","Write here");
+                System.out.println("button Play");
+                player = JOptionPane.showInputDialog(windows,"Player name","Write here");
                 while (player == null || player.compareTo("Write here") == 0 || player.compareTo("D") == 0) {
-                    player = JOptionPane.showInputDialog(ventana,"You must enter a username","Please write here ");
+                    player = JOptionPane.showInputDialog(windows,"You must enter a username","Please write here ");
                 }
-                levelONE();//jugar()
+                /////////////////////////////////////////////////////////////////////////////////
+
+                play();//jugar()
             }
         });
 
