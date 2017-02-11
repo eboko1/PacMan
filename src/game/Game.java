@@ -89,7 +89,7 @@ public class Game {
     /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
-    // for levelOne this ->jugar
+    // for PLay at ->jugar
     public void play(){
         panelMenu.setVisible(false);
         panelPlay = new JPanel();
@@ -97,8 +97,16 @@ public class Game {
         panelPlay.setBounds(0,0,windows.getWidth(),windows.getHeight());
         panelPlay.setVisible(true);
 
+        bgPlay = new JLabel();
+        bgPlay.setBounds(0,0,windows.getWidth(),windows.getHeight());
+        imageBgPlay = new ImageIcon("images//bgPlay.png");
+        imageBgPlay= new ImageIcon(imageBgPlay.getImage().getScaledInstance(windows.getWidth(),windows.getHeight(),Image.SCALE_DEFAULT));
+        bgPlay.setIcon(imageBgPlay);
+        bgPlay.setVisible(true);
+        panelPlay.add(bgPlay,0);
 
 
+        windows.add(panelPlay);
     }
 
     /////////////////////////////////////////////////////////////////////////////////
