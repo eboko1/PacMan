@@ -2,6 +2,8 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -93,8 +95,8 @@ public class Game {
         }
         mat = tablero(1);
         // image player
-        px=1;
-        py=1;
+        px =1;
+        py =1;
         mat[px][py]=3;
         // image enemy
         enemyX=12;
@@ -134,7 +136,7 @@ public class Game {
                 panelPlay.add(matrix[i][j],0);
             }
         }
-
+        move();
 
         windows.add(panelPlay);
     }
@@ -148,6 +150,45 @@ public class Game {
                 panelPlay.add(matrix[i][j],0);
             }
         }
+
+    }
+    public void move (){
+        windows.addKeyListener(new KeyListener(){
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            if(e.getKeyCode()==KeyEvent.VK_UP){
+                System.out.println("UP");
+            }
+            if(e.getKeyCode()==KeyEvent.VK_DOWN){
+                System.out.println("DOwN");
+            }
+            if(e.getKeyCode()==KeyEvent.VK_RIGHT){
+                System.out.println("right");
+                mat[px][py] = 0;
+                px=px+1;
+                mat[px][py]=3;
+                enemy();
+            }
+            if(e.getKeyCode()==KeyEvent.VK_LEFT){
+                System.out.println("Left");
+                mat[px][py] = 0;
+                px=px-1;
+                mat[px][py]=3;
+                enemy();
+            }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
 
     }
     public int [][] tablero (int option){
