@@ -30,6 +30,8 @@ public class Game {
     ImageIcon imageBgPlay;  // Bg  -  background
     int mat[][];
     JLabel matrix[][];
+    int px,py;
+    int enemyX,enemyY;
     String player;//jugador
     JLabel number;
     String points;
@@ -90,6 +92,15 @@ public class Game {
             }
         }
         mat = tablero(1);
+        // image player
+        px=1;
+        py=1;
+        mat[px][py]=3;
+        // image enemy
+        enemyX=12;
+        enemyY=12;
+        mat[enemyX][enemyY]=7;
+
 
         panelPresentation.add(fondoPresentation,0);// down
         windows.setVisible(true);
@@ -127,6 +138,18 @@ public class Game {
 
         windows.add(panelPlay);
     }
+    // pintarmatez on enemy
+    public void enemy(){
+        for(int i=0;i<mat.length;i++){
+            for(int j=0;j<mat.length;j++){
+                matrix[i][j].setIcon(new ImageIcon("images/"+mat[i][j]+".png"));
+                matrix[i][j].setBounds(120+i*30,120+j*30,30,30);
+                matrix[i][j].setVisible(true);
+                panelPlay.add(matrix[i][j],0);
+            }
+        }
+
+    }
     public int [][] tablero (int option){
         int [][]aux1 = new int [15][15];
         if (option == 1 ){
@@ -136,11 +159,13 @@ public class Game {
                     {2,1,2,1,2,1,1,1,1,1,1,2,1,2},
                     {2,1,1,1,1,1,1,2,1,1,2,2,1,2},
                     {2,1,2,1,1,1,2,1,1,2,1,2,1,2},
+
                     {2,1,2,2,1,2,2,2,1,2,1,2,1,2},
                     {2,1,1,1,1,1,2,1,1,1,1,2,1,2},
                     {2,2,2,1,2,2,2,2,2,2,2,2,1,2},
                     {2,1,1,1,2,1,1,1,1,1,1,1,1,2},
                     {2,1,2,1,1,1,2,2,2,1,1,2,1,2},
+
                     {2,1,1,1,2,1,2,1,1,2,2,2,1,2},
                     {2,1,2,1,2,1,2,1,2,1,2,1,1,2},
                     {2,1,1,1,2,1,1,1,1,1,1,1,1,2},
