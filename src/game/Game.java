@@ -155,15 +155,37 @@ public class Game {
 
     }
     public void move (){
-
-
-        timer = new Timer(200, new ActionListener() {
+        timer = new Timer(20, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(up == 1 && (mat[px][py-1]==1 || mat[px][py-1]==0) ){
+                    mat[px][py] = 0;
+                    py = py - 1;
+                    mat[px][py] = 3;
+                    enemy();
+                }
+                if(down == 1 && (mat[px][py+1]==1 || mat[px][py+1]==0) ){
+                    mat[px][py] = 0;
+                    py = py + 1;
+                    mat[px][py] = 3;
+                    enemy();
+                }
+                if(left == 1 && (mat[px-1][py]==1 || mat[px-1][py]==0) ){
+                    mat[px][py] = 0;
+                    px = px - 1;
+                    mat[px][py] = 3;
+                    enemy();
+                }
+                if(right == 1 && (mat[px+1][py]==1 || mat[px+1][py]==0) ){
+                    mat[px][py] = 0;
+                    px = px + 1;
+                    mat[px][py] = 3;
+                    enemy();
+                }
 
             }
         });
-
+        timer.start();
         windows.addKeyListener(new KeyListener(){
 
             @Override
@@ -175,23 +197,48 @@ public class Game {
             public void keyPressed(KeyEvent e) {
             if(e.getKeyCode()==KeyEvent.VK_UP){
                 System.out.println("UP");
+                if (mat[px][py-1]==1 || mat[px][py-1]==0) {
+                    up = 1;
+                    down = 0;
+                    left = 0;
+                    right = 0;
+                }
             }
-            if(e.getKeyCode()==KeyEvent.VK_DOWN){
+            if(e.getKeyCode() == KeyEvent.VK_DOWN){
                 System.out.println("DOwN");
+                if (mat[px][py+1]==1 || mat[px][py+1]==0) {
+                    up = 0;
+                    down = 1;
+                    left = 0;
+                    right = 0;
+                }
             }
             if(e.getKeyCode()==KeyEvent.VK_RIGHT){
                 System.out.println("right");
-                mat[px][py] = 0;
-                px=px+1;
-                mat[px][py]=3;
-                enemy();
+                    if (mat[px+1][py]==1 || mat[px+1][py]==0) {
+                        up = 0;
+                        down = 0;
+                        left = 0;
+                        right = 1;
+                    }
+               // mat[px][py] = 0;
+                //px=px + 1;
+               // mat[px][py]=3;
+                //enemy();
             }
             if(e.getKeyCode()==KeyEvent.VK_LEFT){
                 System.out.println("Left");
-                mat[px][py] = 0;
-                px=px-1;
-                mat[px][py]=3;
-                enemy();
+                if (mat[px-1][py]==1 || mat[px-1][py]==0) {
+                    up = 0;
+                    down = 0;
+                    left = 1;
+                    right = 0;
+                }
+
+               // mat[px][py] = 0;
+               // px=px-1;
+              //  mat[px][py]=3;
+              //  enemy();
             }
             }
 
