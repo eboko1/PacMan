@@ -35,9 +35,10 @@ public class Game {
     JLabel number;
     String points;
     JLabel records;
-
-
-
+    int up;
+    int down;
+    int left;
+    int right;
     Timer timer;
 
     /////////////////////////////////////////////////////////////////////////////////
@@ -154,7 +155,7 @@ public class Game {
 
     }
     public void move (){
-       
+
 
         timer = new Timer(200, new ActionListener() {
             @Override
