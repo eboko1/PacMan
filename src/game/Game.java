@@ -2,10 +2,7 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 /**
  * Created by Vika on 03.02.2017.
@@ -38,6 +35,10 @@ public class Game {
     JLabel number;
     String points;
     JLabel records;
+
+
+
+    Timer timer;
 
     /////////////////////////////////////////////////////////////////////////////////
     public Game(){
@@ -153,6 +154,15 @@ public class Game {
 
     }
     public void move (){
+       
+
+        timer = new Timer(200, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
         windows.addKeyListener(new KeyListener(){
 
             @Override
