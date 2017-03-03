@@ -155,7 +155,7 @@ public class Game {
 
     }
     public void move (){
-        timer = new Timer(20, new ActionListener() {
+        timer = new Timer(300, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(up == 1 && (mat[px][py-1]==1 || mat[px][py-1]==0) ){
