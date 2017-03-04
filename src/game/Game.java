@@ -146,6 +146,12 @@ public class Game {
         number.setVisible(true);
         panelPlay.add(number,0);
 
+       // points = 0;
+        records = new JLabel("POINTS: " + points);
+        records.setBounds(windows.getWidth()-(150+20),20,150,30);
+        records.setVisible(true);
+        records.setForeground(Color.white);
+        panelPlay.add(records);
         move();
 
         windows.add(panelPlay);
