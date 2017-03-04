@@ -138,6 +138,14 @@ public class Game {
                 panelPlay.add(matrix[i][j],0);
             }
         }
+
+
+        number = new JLabel("PLAYER: " + player);
+        number.setBounds(20,20,150,30);
+        number.setForeground(Color.white);
+        number.setVisible(true);
+        panelPlay.add(number,0);
+
         move();
 
         windows.add(panelPlay);
