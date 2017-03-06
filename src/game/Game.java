@@ -330,7 +330,7 @@ public class Game {
         return aux1;
     }
 
-    /////////////////////////////////////////////////////////////////////////////////
+    /
     public void menu(){
         panelPresentation.setVisible(false);
 
